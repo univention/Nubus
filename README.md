@@ -3,6 +3,8 @@ SPDX-FileCopyrightText: 2025 Univention GmbH
 SPDX-License-Identifier: AGPL-3.0-only
 -->
 
+<img src="logos/LOGO_NUBUS_OHNE_RAND_RGB_GRAU.png" style="zoom:25%;" alt="Univention Nubus logo" />
+
 # Univention Nubus IAM & Portal
 
 ## Introduction
@@ -12,6 +14,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 Nubus is a modular open-source solution for centralized Identity & Access Management (IAM) in organizations. It enables the management of user identities, access rights, and applications via a central web portal. Users benefit from integrated Single Sign-On (SSO), allowing seamless access to connected systems without repeated logins.
 
 Nubus supports operation in cloud environments, on-premises, and within hybrid IT infrastructures. Built on open standards, the solution is designed for use in privacy-sensitive environments. Univention provides maintenance, support, and project-based services for Nubus.
+
+<img src="images/nubus-portal-en.png" alt="Screenshots Univention Nubus Portal and User Management of Univention Management Console" />
 
 **Key Features:**
 
