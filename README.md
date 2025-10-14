@@ -1,93 +1,78 @@
-# Nubus
+<!--
+SPDX-FileCopyrightText: 2025 Univention GmbH
+SPDX-License-Identifier: AGPL-3.0-only
+-->
+
+# Univention Nubus IAM & Portal
+
+## Introduction
+
+**Modular Identity & Access Management**
+
+Nubus is a modular open-source solution for centralized Identity & Access Management (IAM) in organizations. It enables the management of user identities, access rights, and applications via a central web portal. Users benefit from integrated Single Sign-On (SSO), allowing seamless access to connected systems without repeated logins.
+
+Nubus supports operation in cloud environments, on-premises, and within hybrid IT infrastructures. Built on open standards, the solution is designed for use in privacy-sensitive environments. Univention provides maintenance, support, and project-based services for Nubus.
+
+**Key Features:**
+
+* Central web portal for user management and access control
+* Single Sign-On (SSO) for integrated application access
+* Self-service functions for users (e.g., password changes, profile updates)
+* Management of user accounts, groups, roles, and permissions
+* Interfaces for integration with external applications and directories
+* Prebuilt integrations for common systems and services
+* Scalable architecture for diverse deployment scenarios
+* Open-source technology with openly documented APIs
+* Suitable for cloud, on-premises, and hybrid environments
+
+**More**
+
+Nubus is designed for organizations with growing needs for centralized identity and access management. It extends existing IT infrastructures with standardized access control and user management.
+
+Learn more about Nubus on our website:
+https://www.univention.com/products/nubus/
+
+## About This Repository
+
+The source code of Univention Nubus is distributed across several repositories following the modular architecture of Nubus. This repository collects "meta information" to give an overview about the sources of Nubus and Nubus itself. You won't find any source code here.
+
+## Install Univention Nubus
+
+Univention Nubus supports two deployment methods:
+* On *physical hardware or as virtual machine*, one can install Univention Corporate Server (UCS) which includes all modules of Univention Nubus. The process is described in the Operations Manual for UCS: https://docs.software-univention.de/n/en/docs/manual.html
+* On *Kubernetes*, one can install Univention Nubus using the provided Helm charts. The process is described in the Nubus for Kubernetes Operations Manual: https://docs.software-univention.de/nubus-kubernetes-operation/latest/en/index.html
+
+## Univention Core Nubus Components and their Repositories
+
+This section only briefly describes the modules of Univention Nubus to link to the main source repositories. More information about the software architecture of Univention Nubus is documented here: https://docs.software-univention.de/nubus-kubernetes-architecture/latest/en/index.html
 
 
 
-## Getting started
+| Nubus Component                          | Description                                                  | Source Code |
+| ---------------------------------------- | ------------------------------------------------------------ | ----------- |
+| **Identity Store and Directory Service** | Stores RFC compliant information about Identities/Users and Groups  as well as other information about the IT environment. Is a preconfigured deployment of OpenLDAP including management of LDAP replication, schemas etc.. |             |
+| **Identity Provider**                    | Provides Authentication, Federation and partly Authorization services based on open standards, focus is on SAML and OpenID Connect. Supports Federation with other IDPs. Is a preconfigured deployment of Keycloak. |             |
+| **Directory Manager**                    | Manages the content of the Identity Store (the OpenLDAP based Directory Service). Provides APIs to management the objects in the Directory Service ("CRUD" operations) and APIs to extend the capabilities (add more attributes to existing objects or add new objects to be managed). Is a python based software implemented by Univention as "Univention Directory Manager" (UDM). |             |
+| **Authorization Service**                | API helper to allow fine grained Authorization on APIs. Focused on internal use cases (APIs of Directory Manager, Portal, Self Services and other components utilizing the Univention Management Stack), but also  available to be used by other applications. Uses a preconfigured "Open Policy Agent" as backend. |             |
+| **Provisioning Service**                 | Post-processing of events in Univention Nubus, focused on post-processing operations initiated in the Directory Manager. The service is extend-able with plugins and allows to implement  individual, asynchronous backend tasks after events/changes happened - for  example informing an applications API about CRUD operations on users and groups. Uses a preconfigured "NATS" as backend. |             |
+| **Intercom Service**                     | Connects backend APIs and their consumers with transparent authentication for different authentication standards/methods. |             |
+| **Management UI**                        | User friendly UI to access the functionality of the Directory Manager component and other modules. Focus is on administrative and user helpdesk tasks. Can be extended with additional modules. Is a Python backend implementation  "Univention Management Console" (UMC) with Dojo and Vue.js frontends. |             |
+| **End User Self Service**                | User friendly end user UI to access personal information and  settings stored in the Directory Manager component. Allows end users to  change settings like contact information or avatar pictures. Is a frontend to the UMC. |             |
+| **Portal**                               | User friendly web portal for end users to get an overview about the applications / services available for this user. Eases the access using web based SSO, integrates the self service, the Management UI and optionally other Web UIs. As APIs to interact with applications to present additional information to the end user (like action items  waiting for the current user in an application). Is mainly a frontend implemented using Vue.js. |             |
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Univention Nubus Extensions and Packaged Integrations
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Univention Nubus provides various APIs for extension and preconfiguration during deployments. These are often used to add functionality to connect Applications to the IAM. For better maintainability, such extensions can be bundled as "Packaged Integrations", which combine code like Plugins or Connectors with preconfiguration of Nubus and deployment automation. These packaged integrations are not listed here, entrypoints are:
 
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://git.knut.univention.de/univention/dev/nubus.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://git.knut.univention.de/univention/dev/nubus/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+* Packaged Integrations available for Kubernetes: https://docs.software-univention.de/n/en/docs/packaged-integrations.html
+* Packaged Integrations available for UCS: https://www.univention.com/products/app-catalog/
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Currently the easiest way to contribute to Univention Nubus is following the [contributing guide](https://github.com/univention/univention-corporate-server/blob/5.2-3/CONTRIBUTING.md) and the [Code of Conduct contains guidelines](https://github.com/univention/univention-corporate-server/blob/5.2-3/CONTRIBUTING.md#code-of-conduct) we expect project participants to adhere to provided on Github.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Information about the software used and the various APIs provided can be found in the [Documentation provided for Sofware Developers](https://docs.software-univention.de/n/en/developers.html#page-developers).
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Univention Nubus is built on top of many existing open source projects which use their own licenses. The source code of all parts written by Univention is licensed under the AGPLv3 if not stated otherwise directly in the source code. Please see the individual repositories for more information.
