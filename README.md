@@ -43,8 +43,18 @@ The source code of Univention Nubus is distributed across several repositories f
 ## Install Univention Nubus
 
 Univention Nubus supports two deployment methods:
-* On *physical hardware or as virtual machine*, one can install Univention Corporate Server (UCS) which includes all modules of Univention Nubus. The process is described in the Operations Manual for UCS: https://docs.software-univention.de/n/en/docs/manual.html
-* On *Kubernetes*, one can install Univention Nubus using the provided Helm charts. The process is described in the Nubus for Kubernetes Operations Manual: https://docs.software-univention.de/nubus-kubernetes-operation/latest/en/index.html
+* On *physical hardware or as virtual machine*, one can install Univention Corporate Server (UCS) which includes all modules of Univention Nubus. 
+  * The process is described in the Operations Manual for UCS: 
+    https://docs.software-univention.de/n/en/docs/manual.html
+  * Release Notes can be found in:
+    https://docs.software-univention.de/n/en/docs/release-notes.html
+
+* On *Kubernetes*, one can install Univention Nubus using the provided Helm charts. 
+  * The process is described in the Nubus for Kubernetes Operations Manual: 
+    https://docs.software-univention.de/nubus-kubernetes-operation/latest/en/index.html
+  * Release Notes can be found in:
+    https://docs.software-univention.de/n/en/docs/nubus-kubernetes-release-notes.html
+
 
 ## Univention Core Nubus Components and their Repositories
 
