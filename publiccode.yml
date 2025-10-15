@@ -1,0 +1,147 @@
+# SPDX-FileCopyrightText: 2025 Univention GmbH
+# SPDX-License-Identifier: AGPL-3.0-only
+#
+# This repository adheres to the publiccode.yml standard by including this
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+---
+publiccodeYmlVersion: "0.4"
+name: "Nubus"
+applicationSuite: openDesk
+url: "https://github.com/univention/"
+landingURL: "https://nubus.de"
+softwareVersion: "1.14.0"
+releaseDate: "2025-09-18"
+logo: logos/LOGO_NUBUS_OHNE_RAND_RGB_GRAU.svg
+platforms:
+  - linux
+  - web
+usedBy:
+  - ZenDiS GmbH
+  - Orange S.A.
+  - Senatorin für Kinder und Bildung Bremen
+  - Ministerium für Bildung, Jugend und Sport (MBJS) des Landes Brandenburg
+  - Ministerium für Bildung und Kindertagesförderung von Mecklenburg-Vorpommern
+  - Landesrechnungshof Mecklenburg-Vorpommern
+  - ...
+categories:
+  - Identity- und Access-Management
+  - IAM
+  - IDM
+  - Portal
+  - Single Sign-On
+developmentStatus: stable
+softwareType: "standalone/web"
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - de
+    - en
+intendedAudience:
+  countries:
+    - "de"
+    - "at"
+    - "ch"
+    - "gb"
+    - "uk"
+    - "fr"
+    - "es"
+  scope:
+    - "infrastructures"
+    - "local-authorities"
+    - "government"
+    - "education"
+description:
+  de:
+    genericName: "Identity- und Access Management"
+    shortDescription:
+      Nubus ist eine modulare Open-Source-Lösung für das zentrale
+      Identity & Access Management (IAM) in Organisationen und für
+      Software-Stacks.
+    longDescription:
+      Nubus ist eine modulare Open-Source-Lösung für zentrales Identity &
+      Access Management (IAM) in Organisationen. Sie ermöglicht die sichere und
+      effiziente Verwaltung von Benutzeridentitäten, Rollen, Berechtigungen und
+      den Zugriff auf Anwendungen über ein zentrales Webportal. Integriertes
+      Single Sign-On (SSO) erlaubt Nutzern den Zugriff auf verbundene Systeme
+      ohne wiederholte Anmeldungen, während Self-Service-Funktionen wie
+      Passwortänderungen den Administrationsaufwand reduzieren.
+
+      Durch zahlreiche Schnittstellen und Erweiterungsmöglichkeiten können
+      Anwendungen nicht nur über Single Sign-On,sondern auch für einen
+      durchgängigen User Lifecycle und Berechtigungsmanagement an Nubus
+      angebunden werden. Bestehende Systeme mit Informationen zu Identitäten
+      oder zur Authentifikation können als Quelle für den User Lifecycle
+      oder zur Authentifikation dienen.
+      Dank Paketierter Integrationen kann für die Anbindung verbreitete
+      Open Source Software auf Best Practices zurügegriffen und Deployments
+      schnell durchgeführt werden.
+
+      Nubus unterstützt den Einsatz unter Kubernetes, lokal (On-Premises)
+      sowie in hybriden IT-Infrastrukturen. Die Lösung basiert auf offenen
+      Standards und ist für den Betrieb in datenschutzsensiblen Umgebungen
+      ausgelegt.
+
+      Univention stellt für Nubus Pflege,Wartung und Unterstützung im Rahmen
+      von Projekten bereit.
+    features:
+      - Zentrales Webportal für Benutzerverwaltung und Zugriffskontrolle
+      - Single Sign-on (SSO) für den Zugriff auf integrierte Anwendungen
+      - Self-Service-Funktionen für Nutzende (z. B. Passwortänderung,
+        Profilpflege)
+      - Verwaltung von Benutzerkonten, Gruppen, Rollen und Berechtigungen
+      - Schnittstellen für die Anbindung externer Anwendungen und Verzeichnisse
+      - Vorbereitete Integrationen für gängige Systeme und Dienste
+      - Skalierbare Architektur für verschiedene Einsatzszenarien
+      - Open-Source-Technologie mit offen dokumentierten Schnittstellen
+      - Einsatzmöglichkeiten in Cloud-, On-Premises- und hybriden Umgebungen
+    screenshots:
+      - images/nubus-portal-de.png
+  en:
+    genericName: "Identity- und Access Management"
+    shortDescription:
+      Nubus is a modular open-source solution for centralized Identity and
+      Access Management (IAM) in organizations and for software stacks.
+    longDescription:
+      Nubus is a modular open-source solution for centralized Identity &
+      Access Management (IAM) in organizations. It enables secure and efficient
+      management of user identities, roles, permissions, and access to
+      applications via a central web portal. Integrated Single Sign-On (SSO)
+      allows users to access connected systems without repeated logins, while
+      self-service features like password changes reduce administrative
+      workload.
+
+      Thanks to numerous interfaces and expansion options, applications can
+      be connected to Nubus not only via Single Sign-On, but also for a
+      continuous User Lifecycle and authorization management. Existing
+      systems with information on identities or authentication can serve as a
+      source for the User Lifecycle or for authentication. Thanks to Packaged
+      Integrations, widely used open source software based on best practices
+      can be used for the connection and deployments can be carried out quickly.
+
+      Nubus supports deployment on Kubernetes, locally (on-premises) and in
+      hybrid IT infrastructures. The solution is based on open standards and is
+      designed for operation in data protection-sensitive environments.
+
+      Univention offers professional support, maintenance, and consulting
+      services for implementing Nubus in various project scenarios.
+    features:
+      - Central web portal for user management and access control
+      - Single Sign-On (SSO) for integrated application access
+      - Self-service functions for users (e.g., password changes, profile
+        updates)
+      - Management of user accounts, groups, roles, and permissions
+      - Interfaces for integration with external applications and directories
+      - Prebuilt integrations for common systems and services
+      - Scalable architecture for diverse deployment scenarios
+      - Open-source technology with openly documented APIs
+      - Suitable for cloud, on-premises, and hybrid environments
+    screenshots:
+      - images/nubus-portal-de.png
+legal:
+  license: AGPL-3.0-or-later
+maintenance:
+  type: "contract"
+  contacts:
+    - name: "Univention GmbH"
+      email: "sales@univention.de"
