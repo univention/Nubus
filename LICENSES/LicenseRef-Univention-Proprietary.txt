@@ -1,0 +1,8 @@
+Artifacts referenced with the "LicenseRef-Univention-Proprietary" license
+in the SPDX header or other ways to define the license underly the
+Terms of Use for Univention Products. Typically, these artifacts are subject
+to Univention's trademark rights.
+
+The latest version can be found here:
+https://www.univention.com/products/download/terms-of-use/
+
