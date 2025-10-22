@@ -53,6 +53,7 @@ intendedAudience:
     - "education"
 description:
   de:
+    localisedName: "Univention Nubus"
     genericName: "Identity- und Access Management"
     shortDescription:
       Nubus ist eine modulare Open-Source-Lösung für das zentrale
@@ -98,7 +99,8 @@ description:
     screenshots:
       - images/nubus-portal-de.png
   en:
-    genericName: "Identity- und Access Management"
+    localisedName: "Univention Nubus"
+    genericName: "Identity- and Access Management"
     shortDescription:
       Nubus is a modular open-source solution for centralized Identity and
       Access Management (IAM) in organizations and for software stacks.
