@@ -98,7 +98,7 @@ description:
     screenshots:
       - images/nubus-portal-de.png
   en:
-    genericName: "Identity- und Access Management"
+    genericName: "Identity- and Access Management"
     shortDescription:
       Nubus is a modular open-source solution for centralized Identity and
       Access Management (IAM) in organizations and for software stacks.
