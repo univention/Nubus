@@ -55,12 +55,9 @@ Univention Nubus supports two deployment methods:
   * Release Notes can be found in:
     https://docs.software-univention.de/n/en/docs/nubus-kubernetes-release-notes.html
 
-
 ## Univention Core Nubus Components and their Repositories
 
 This section only briefly describes the modules of Univention Nubus to link to the main source repositories. More information about the software architecture of Univention Nubus is documented here: https://docs.software-univention.de/nubus-kubernetes-architecture/latest/en/index.html
-
-
 
 | Nubus Component                          | Description                                                  | Source Code |
 | ---------------------------------------- | ------------------------------------------------------------ | ----------- |
