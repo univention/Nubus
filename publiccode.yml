@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 Univention GmbH
+# SPDX-FileCopyrightText: 2025-2025 Univention GmbH
 # SPDX-License-Identifier: AGPL-3.0-only
 #
 # This repository adheres to the publiccode.yml standard by including this
@@ -10,8 +10,8 @@ name: "Nubus"
 applicationSuite: openDesk
 url: "https://github.com/univention/nubus"
 landingURL: "https://nubus.de"
-softwareVersion: "1.19.0"
-releaseDate: "2026-03-31"
+softwareVersion: "1.19.1"
+releaseDate: "2026-04-21"
 logo: logos/LOGO_NUBUS_OHNE_RAND_RGB_GRAU.svg
 platforms:
   - linux
