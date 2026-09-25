@@ -1,0 +1,47 @@
+# SPDX-FileCopyrightText: 2026 Univention GmbH
+# SPDX-License-Identifier: AGPL-3.0-only
+---
+stages:
+  - test
+  - bump
+
+variables:
+  UCS_BASE_PYTHON_IMAGE: "gitregistry.knut.univention.de/univention/dev/projects/ucs-base-image/ucs-base-python:5.3.0-build.20260924"
+  NUBUS_HELM_PROJECT: "univention/dev/nubus-for-k8s/nubus-helm"
+
+.python:
+  image:
+    name: "${UCS_BASE_PYTHON_IMAGE}"
+    entrypoint: [""]
+
+test-bump-nubus-version:
+  extends: .python
+  stage: test
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+      changes:
+        - .gitlab-ci.yml
+        - pyproject.toml
+        - scripts/**/*
+        - tests/**/*
+  script:
+    - apt-get --assume-yes --quiet --no-install-recommends install python3-pytest
+    - python3 -m pytest -v
+
+bump-nubus-version:
+  extends: .python
+  stage: bump
+  rules:
+    - if: ($CI_PIPELINE_SOURCE == "schedule" || $CI_PIPELINE_SOURCE == "web") && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  script:
+    - apt-get --assume-yes --quiet --no-install-recommends install git
+    - python3 scripts/bump_nubus_version.py --file publiccode.yml
+    - |
+      if git diff --quiet -- publiccode.yml; then
+        exit 0
+      fi
+      version="$(grep -oP '^softwareVersion: "\K[^"]+' publiccode.yml)"
+      git -c user.name="${GITLAB_USER_NAME}" -c user.email="${GITLAB_USER_EMAIL}" \
+        commit --message "chore: Bump Nubus version to ${version}" -- publiccode.yml
+      git push "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" "HEAD:${CI_DEFAULT_BRANCH}"
+...
