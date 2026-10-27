@@ -10,8 +10,8 @@ name: "Nubus"
 applicationSuite: openDesk
 url: "https://github.com/univention/nubus"
 landingURL: "https://nubus.de"
-softwareVersion: "1.23.3"
-releaseDate: "2026-10-16"
+softwareVersion: "1.24.0"
+releaseDate: "2026-10-27"
 logo: logos/LOGO_NUBUS_OHNE_RAND_RGB_GRAU.svg
 platforms:
   - linux
